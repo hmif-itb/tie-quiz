@@ -1,0 +1,94 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+.innercontainer {
+    width: 500px;
+}
+
+.information {
+    margin-bottom: 9rem;
+}
+
+.hmif {
+    font-size: 1.2rem;
+    color: #f3e8c2;
+    font-weight: 400;
+}
+
+.title {
+    cursor: pointer;
+    font-size: 4rem;
+    color: #FFC300;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    transition: color 0.2s;
+}
+
+.title:hover {
+    color: #ffdd6d;
+}
+
+.description {
+    font-size: 1.5rem;
+    color: #FFF;
+    width: 450px;
+}
+
+.item1 {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 3rem;
+}
+  
+.item1 path,
+.item1 polygon,
+.item1 rect {
+    fill: #FFC300;
+    transition: fill 0.2s;
+}
+  
+.item1 circle {
+    stroke: #FFC300;
+    stroke-width: 1;
+    transition: stroke 0.2s;
+}
+
+.item1:hover path,
+.item1:hover polygon,
+.item1:hover rect {
+    fill: #ffdd6d;
+}
+  
+.item1:hover circle {
+    stroke: #ffdd6d;
+    stroke-width: 1;
+}
+
+.circle1 {
+    position: absolute;
+    background-color: #FFC300;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    bottom: 20px;
+    right: -30px;
+}
+
+.circle2 {
+    position: absolute;
+    background-color: #FFC300;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    bottom: 15px;
+    right: 75px;
+}

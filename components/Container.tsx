@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { AppState } from "../types/state";
+import Login from "./Login/Login";
+
+import styles from '../styles/Container.module.css';
 
 const Container = (): JSX.Element => {
 
@@ -11,11 +14,12 @@ const Container = (): JSX.Element => {
     }
 
     return (
-        <div>
-            {appContext.loading &&
+        <div className={styles.container}>
+            {appContext.loading ?
                 <h1>It's Loading!</h1>
+            :
+                <Login />
             }
-            <button onClick={onClick}>click me</button>
         </div>
 
     );
