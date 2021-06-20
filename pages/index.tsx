@@ -8,8 +8,8 @@ const Home = (): JSX.Element => {
         <AppProvider>
             <div>
                 <Head>
-                    <title>Quiz</title>
-                    <meta property="og:title" content="Next.js + Typescript Starter" />
+                    <title>TIE Quiz</title>
+                    <meta property="og:title" content="HMIF Tech - TIE Quiz" />
                 </Head>
 
                 
