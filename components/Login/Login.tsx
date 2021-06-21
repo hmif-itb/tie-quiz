@@ -1,9 +1,32 @@
-import { GoogleLogin } from 'react-google-login';
+import { useContext } from 'react';
+import { GoogleLogin, GoogleLoginResponse } from 'react-google-login';
 import styles from '../../styles/login/login.module.css';
+import { AppContext } from '../../context/AppContext';
+import { AppState } from '../../types/state';
+import axios from 'axios';
 
 const Login = (): JSX.Element => {
 
-    const googleClientId = "506449129547-v1b3itgmqnpiugngilg0j2tkdgiqm068.apps.googleusercontent.com";
+    const clientID: string = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+    const appContext: AppState = useContext(AppContext);
+
+    const onGoogleResponse = async (response: GoogleLoginResponse) => {
+        try {
+            //console.log(response);
+            const googleToken: string = response.tokenId;
+            const resp = await axios.post("http://localhost:3005/verifytoken", {
+                token: googleToken
+            });
+
+            console.log(resp.data);
+        } catch (e) {
+            const errorMessage: string = (e as Error).message;
+            console.log(errorMessage);
+        }
+        
+        //appContext.setLoading(true)
+
+    };
 
     return (
         <div className={styles.container}>
@@ -17,8 +40,9 @@ const Login = (): JSX.Element => {
                     <p className={styles.description}>Wanna know what this is all about? click the login button below and find out!</p>
                 </div>
                 <GoogleLogin
-                    clientId={googleClientId}
+                    clientId={clientID}
                     buttonText="Login to std.stei.itb.ac.id"
+                    onSuccess={onGoogleResponse}
                 />
             </div>
 
