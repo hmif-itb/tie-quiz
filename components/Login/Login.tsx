@@ -12,15 +12,30 @@ const Login = (): JSX.Element => {
     const GOOGLE_CLIENT_ID: string = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const SERVER_URL: string = process.env.NEXT_PUBLIC_SERVER_URL;
 
+    const test = async (): Promise<void> => {
+        try {
+            const resp = await axios.get(`${SERVER_URL}/verifysession`, {
+                withCredentials: true
+            });
+
+            //console.log(resp.data);
+        } catch (e) {
+            const errorMessage: string = (e as Error).message;
+            console.log(errorMessage);
+        }
+    };
+
     const onGoogleResponse = async (response: GoogleLoginResponse): Promise<void> => {
         try {
             //console.log(response);
             const googleToken: string = response.tokenId;
             const resp = await axios.post(`${SERVER_URL}/verifytoken`, {
                 token: googleToken
+            }, {
+                withCredentials: true
             });
 
-            console.log(resp.data);
+            //console.log(resp.data);
         } catch (e) {
             const errorMessage: string = (e as Error).message;
             console.log(errorMessage);
@@ -38,7 +53,7 @@ const Login = (): JSX.Element => {
                 </svg>
                 <div className={styles.information}>
                     <h1 className={styles.hmif}>HMIF Tech</h1>
-                    <h1 className={styles.title}>TIE Quiz</h1>
+                    <h1 onClick={test} className={styles.title}>TIE Quiz</h1>
                     <p className={styles.description}>Wanna know what this is all about? click the login button below and find out!</p>
                 </div>
                 <GoogleLogin

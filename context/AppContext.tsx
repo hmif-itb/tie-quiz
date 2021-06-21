@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer, useEffect, Context } from 'react';
 import AppReducer from './AppReducer';
 import { AppState } from '../types/state';
 import { ActionType } from '../types/actions';
@@ -8,7 +8,7 @@ const initialStateValue: AppState = {
     setLoading: undefined
 };
 
-const AppContext = createContext<AppState>(undefined);
+const AppContext: Context<AppState> = createContext<AppState>(undefined);
 
 const AppProvider = (props) => {
 
