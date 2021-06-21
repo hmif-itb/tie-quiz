@@ -3,5 +3,5 @@ export type AppState = {
 
     //googleToken: string;
 
-    setLoading: Function;
+    setLoading: (value: boolean) => void;
 };

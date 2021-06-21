@@ -22,7 +22,7 @@ const AppProvider = (props) => {
         })
     }, []);
 
-    const doAsyncTask = async () => {
+    const doAsyncTask = async (): Promise<void> => {
         
         /* Do await stuff */
 
@@ -35,7 +35,7 @@ const AppProvider = (props) => {
         */
     };
 
-    const setLoading = (value: boolean) => {
+    const setLoading = (value: boolean): void => {
 
         dispatch({
             type: ActionType.SetLoading,
