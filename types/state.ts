@@ -1,7 +1,10 @@
+import { Socket } from "socket.io-client";
+
 export type AppState = {
+    loggedin: boolean;
     loading: boolean;
 
-    //googleToken: string;
-
-    setLoading: (value: boolean) => void;
+    name: string,
+    points: number,
+    status: number
 };

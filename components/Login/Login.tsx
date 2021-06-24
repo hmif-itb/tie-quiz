@@ -1,16 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GoogleLogin, GoogleLoginResponse } from 'react-google-login';
 import styles from '../../styles/login/login.module.css';
 import { AppContext } from '../../context/AppContext';
 import { AppState } from '../../types/state';
 import axios from 'axios';
+import { ActionType } from '../../types/actions';
 
 const Login = (): JSX.Element => {
 
-    const appContext: AppState = useContext(AppContext);
+    const appContext = useContext(AppContext);
 
     const GOOGLE_CLIENT_ID: string = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const SERVER_URL: string = process.env.NEXT_PUBLIC_SERVER_URL;
+
 
     const test = async (): Promise<void> => {
         try {
@@ -34,6 +36,16 @@ const Login = (): JSX.Element => {
             }, {
                 withCredentials: true
             });
+
+            const { status }: { status: string } = resp.data;
+
+            if(status === "success") {
+                appContext.dispatch({
+                    type: ActionType.SetLogin,
+                    payload: true
+                });
+            }
+
 
             //console.log(resp.data);
         } catch (e) {
@@ -66,7 +78,6 @@ const Login = (): JSX.Element => {
             <div className={styles.circle1}></div>
             <div className={styles.circle2}></div>
         </div>
-        
     );
 };
 
