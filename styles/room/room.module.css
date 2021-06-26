@@ -1,0 +1,77 @@
+.container {
+    height: 100%;
+}
+.timer {
+    background-color: #FFF;
+    height: 0.8rem;
+    transition: width 0.5s;
+}
+
+.flex {
+    height: calc(100% - 0.8rem);
+    display: flex;
+    align-items: flex-end;
+}
+
+.score1 {
+    background-color: salmon;
+    width: 0.8rem;
+    transition: height 0.3s;
+}
+
+.score2 {
+    background-color:burlywood;
+    width: 0.8rem;
+    transition: height 0.3s;
+}
+
+.content {
+    width: calc(100% - 1.6rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+}
+
+.point {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.question {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+.answers {
+    list-style: none;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.answers > li {
+    text-align: center;
+    cursor: pointer;
+    padding: 3rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #000;
+    width: 100%;
+    margin: 2rem 0 2rem 0;
+    transition: background-color 0.2s;
+}
+
+.normal {
+    background-color: #FFF;
+}
+
+.correct {
+    background-color: rgb(22, 143, 22);
+}
+
+.wrong {
+    background-color: rgb(192, 65, 65);
+}

@@ -2,4 +2,29 @@
     width: 100%;
     height: 100%;
     color: #FFF;
+
+}
+
+.flex {
+    margin: auto;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+
+.room {
+    margin-top: 2rem;
+    border: 2px solid #FFF;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.room > ul {
+    list-style: none;
 }
